@@ -80,14 +80,14 @@ export default {
       </template>
       <template v-else>
          <a href="#" id="show-btn" @click="showLogin"> {{ $t('test-login') }} </a> 
-          <a href="#" id="show-btn" @click="showRegistor"> {{ $t('test-register') }} </a> 
+          <!--<a href="#" id="show-btn" @click="showRegistor"> {{ $t('test-register') }} </a> 
 
         <router-link :to="{ name: 'login' }">
           {{ $t('login') }}
         </router-link>
         <router-link :to="{ name: 'register' }">
           {{ $t('register') }}
-        </router-link>
+        </router-link>-->
       <!--POPUP LOGIN --->    
 
         
