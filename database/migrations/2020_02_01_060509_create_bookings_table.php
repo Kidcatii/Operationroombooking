@@ -17,13 +17,19 @@ class CreateBookingsTable extends Migration
             $table->increments('id');
             $table->dateTime('start');
             $table->dateTime('end');
-            $table->string('describe');
-            $table->integer('user_id')->unsigned();
-            $table->integer('room_id')->unsigned();
+            $table->string('describe')->nullable();
+            $table->bigInteger('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->integer('room_id')->unsigned();
             $table->foreign('room_id')->references('id')->on('rooms')->onDelete('cascade');
+            $table->boolean('status');
+            $table->tinyInteger('count');
+            $table->string('password')->nullable();
+            
             $table->timestamps();
         });
+
+
     }
 
     /**

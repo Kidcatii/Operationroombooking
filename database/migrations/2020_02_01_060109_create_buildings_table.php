@@ -15,9 +15,9 @@ class CreateBuildingsTable extends Migration
     {
         Schema::create('buildings', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('image1')->nullable();
-            $table->string('image2')->nullable();
-            $table->string('image3')->nullable();
+            $table->longText('image1')->nullable();
+            $table->longText('image2')->nullable();
+            $table->longText('image3')->nullable();
             $table->string('building_name',100);
             $table->time('open');
             $table->time('close');

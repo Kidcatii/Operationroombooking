@@ -15,13 +15,14 @@ class CreateRoomsTable extends Migration
     {
         Schema::create('rooms', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('image1')->nullable();
-            $table->string('image2')->nullable();
-            $table->string('image3')->nullable();
+            $table->longText('image1')->nullable();
+            $table->longText('image2')->nullable();
+            $table->longText('image3')->nullable();
             $table->string('room_name');
             $table->boolean('status');
             $table->integer('building_id')->unsigned();
             $table->foreign('building_id')->references('id')->on('buildings')->onDelete('cascade');
+            $table->integer('book')->unsigned();
             $table->timestamps();
         });
     }
