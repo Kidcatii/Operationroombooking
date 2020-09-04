@@ -124,7 +124,6 @@ data(){
       },
 
     mounted(){
-        this.getAlldata();
         this.myprop();
         this.runCron();
         this.groupdata();
@@ -139,14 +138,7 @@ data(){
           this.$router.push('bookingdetail/'+id)
         },
 
-        getAlldata(){
-          this.getBookingData();
-          this.getBuildingData();
-          this.getRoomData();
-          this.getUserData();
-          this.getJoingroupData();
 
-        },
 
         getBuildingData(){
             /*axios.get('api/bookings').then(response=>{
@@ -201,33 +193,25 @@ data(){
             for(let index = 0; index < this.booking.length;index++ ) {
               
               if(this.booking[index].status === 0){
-                //console.log(this.booking[index].id);
+
                 var bookingdate = new Date(this.booking[index].created_at+' UTC');
                 
                 bookingdate.setMinutes(bookingdate.getMinutes()+10);
-                //console.log(timenow);
-                //console.log(bookingdate);
 
                 
                   if(timenow > bookingdate){
                     axios.put('/api/bookings/'+this.booking[index].id,{
                       status:2
                     });
-                    console.log('Cancel');
+
                     
                   }
 
-                  //if(timenow ===)
-                
-                //console.log(bookingdate);
-                //console.log(bookingdatesss);
-                //console.log(bookinghour);
-                //console.log(bookingminute);
-                //console.log(bookingsecond);
+
                 
               }
               else {
-                console.log('Checking Book status.');
+
               }
               }
             });

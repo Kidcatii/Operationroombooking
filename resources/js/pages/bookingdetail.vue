@@ -279,11 +279,9 @@ export default {
 
       axios.get('/api/users/').then(response=>{
           this.users = response.data;
-          //console.log(this.user);
           axios.get('/api/joingroups/').then(response=>{
           this.groupcall = response.data;
           let group = this.groupcall;
-          console.log(this.groupcall);
 
          for (let index = 0; index < this.users.length; index++) {
 
@@ -291,7 +289,7 @@ export default {
               if(this.groupcall[i].booking_id == this.$route.params.id){
 
               if(this.groupcall[i].user_id == this.users[index].id){
-                console.log('1')
+
                 this.nub++;
                   if (this.users[index].id == this.bookings.user_id){
                       this.member.push({
@@ -359,22 +357,20 @@ export default {
         }
       });
 
-      console.log(userid)
 
-      console.log(this.user.id);
+
       for (let i = 0; i < this.member.length; i++) {
-        console.log(this.member);
-        console.log('4');
+
         if (id == this.member[i].id){
           
           this.joined = 'เข้าร่วมแล้ว';
-          console.log('5');
+
           return true;
           break;
         }
         else {
 
-          console.log('6');
+
           this.joined = 'เข้าร่วม';
           return false;
 
@@ -383,7 +379,7 @@ export default {
 
       for (let index = 0; index < this.member.length; index++) {
         if(this.user.id == this.member[index].id){
-          console.log('5')
+
           this.joined = 'เข้าร่วมแล้ว'
           return true;
           break;
@@ -394,7 +390,6 @@ export default {
             return true;
           }
           else {
-          console.log('6')
           }
         }
         //debugger
@@ -469,7 +464,6 @@ export default {
       }
 
       for (let i = 0;i < this.friends.length;i++){
-        console.log('2')
         axios.post('/api/joingroups',{
         booking_id:bookingid,
         user_id:this.friends[i],
