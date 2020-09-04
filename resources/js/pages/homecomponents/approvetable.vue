@@ -35,9 +35,8 @@
         
       </table>-->
 
-          <v-simple-table>
-        <template v-slot:default>
-          <thead>
+
+        <table style="width:100%">
             <tr>
               <th>รหัส</th>
               <th>ชื่อห้อง</th>
@@ -47,8 +46,6 @@
               <th>จำนวน</th>
               <th></th>
             </tr>
-          </thead>
-          <tbody>
             <tr v-for="item in items.slice(0, 5)" :key="item.id" >
               <td>{{item.id}}</td>
               <td>{{item.roomname}}</td>
@@ -60,9 +57,8 @@
             รายละเอียด </v-btn>
             </td>
             </tr>
-          </tbody>
         </template>
-      </v-simple-table>
+
 
       <v-btn absolute right text color="blue" @click="$router.push('/alloflist')">ดูทั้งหมด>></v-btn>
       <br/>
