@@ -8,74 +8,7 @@
     <!--<card class="text-center" :title="$t('home')">
       {{ $t('you_are_logged_in') }}
     </card>-->
-    <card :title="$t('ห้องที่ได้รับการอนุมัติล่าสุด')" style="text-align: center font-family: arial; width: 100%; margin: auto;">
-      <!--<table class="table table-bordered">
-        <tr >
-          <th>รหัส</th>
-          <th>ชื่อห้อง</th>
-          <th>เวลาเริ่ม</th>
-          <th>เวลาสิ้นสุด</th>
-          <th>หมายเหตุ</th>
-          <th>จำนวน</th>
-          <th>Actions</th>
-        </tr>
-        <tr v-for="item in tabb" :key="item.id"
-        >
-          <td>{{item.id}}</td>
-          <td>{{item.roomname}}</td>
-          <td>{{item.start}}</td>
-          <td>{{item.end}}</td>
-          <td>{{item.describe}}</td>
-          <td>{{item.count}}</td>
-          <td><v-btn @click="gotoBookingdetail(item.id)">
-            เข้าร่วม </v-btn>
-           <v-dialog v-model="dialog" max-width="300px">
-              <v-card>
-                <v-card-text>ต้องการเข้าร่วมหรือไม่</v-card-text>
-                <v-spacer></v-spacer>
-              <v-card-actions>
-                <v-btn color="green" @click="dialog = false" text>ใช่</v-btn>
-                <v-btn color="red" @click="dialog = false" text>ไม่</v-btn>
-              </v-card-actions>
-              </v-card>
-            </v-dialog>
-            </td>
-        </tr>
-        
-      </table>-->
-
-          <v-simple-table>
-        <template v-slot:default>
-          <thead>
-            <tr>
-              <th>รหัส</th>
-              <th>ชื่อห้อง</th>
-              <th>เวลาเริ่ม</th>
-              <th>เวลาสิ้นสุด</th>
-              <th>หมายเหตุ</th>
-              <th>จำนวน</th>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr v-for="item in tabbbb.slice(0, 5)" :key="item.id" >
-              <td>{{item.id}}</td>
-              <td>{{item.roomname}}</td>
-              <td>{{item.start}}</td>
-              <td>{{item.end}}</td>
-              <td>{{item.describe}}</td>
-              <td>{{item.member}}/{{item.count}}</td>
-              <td><v-btn color="blue" text @click="gotoBookingdetail(item.id)">
-            รายละเอียด </v-btn>
-            </td>
-            </tr>
-          </tbody>
-        </template>
-      </v-simple-table>
-
-      <v-btn absolute right text color="blue" @click="$router.push('/alloflist')">ดูทั้งหมด>></v-btn>
-      <br/>
-    </card>
+    <booktable/>
 
     
     <br/>
@@ -134,12 +67,18 @@
 import axios from 'axios';
 window.moment = require('moment');
 import { mapGetters } from 'vuex'
+import booktable from './homecomponent/approvetable'
 export default {
   middleware: 'auth',
 
   metaInfo () {
     return { title: this.$t('home') }
   },
+
+  components:{
+    booktable,
+  },
+
 data(){
         return {
             dialog:false,
@@ -184,8 +123,7 @@ data(){
       },
 
     mounted(){
-        this.getBuildingID();
-        this.getBuildingData();
+        this.getAlldata();
         this.myprop();
         this.runCron();
         this.groupdata();
@@ -200,16 +138,27 @@ data(){
           this.$router.push('bookingdetail/'+id)
         },
 
+        getAlldata(){
+          this.getBookingData();
+          this.getBuildingData();
+          this.getRoomData();
+          this.getUserData();
+          this.getJoingroupData();
+
+        },
+
         getBuildingData(){
-            axios.get('api/bookings').then(response=>{
+            /*axios.get('api/bookings').then(response=>{
                 this.booking = response.data;
-            })
+            })*/
+
+            
             
             axios.get('api/buildings').then(response=>{
                 this.buildings = response.data.building;
             })
 
-            axios.get('/api/rooms').then(response=>{
+            /*axios.get('/api/rooms').then(response=>{
               this.rooms = response.data.room;
             })
 
@@ -219,9 +168,34 @@ data(){
 
             axios.get('/api/joingroups').then(response=>{
               this.groupjoin = response.data;
-            });     
-            
+            });
 
+          this.totalData()*/
+
+        },
+
+        getBuildingID(){
+            axios.get('api/buildings/'+1).then(response=>{
+                this.buildingsid = response.data;
+            })
+        },
+
+        getRoomData(){
+            axios.get('/api/rooms').then(response=>{
+              this.rooms = response.data.room;
+            })
+        },
+
+        getUserData(){
+          axios.get('/api/users').then(response=>{
+              this.users = response.data;
+            })
+        },
+
+        getJoingroupData(){
+          axios.get('/api/joingroups').then(response=>{
+              this.groupjoin = response.data;
+            });
         },
 
         getBuildingID(){
@@ -232,40 +206,7 @@ data(){
 
         getBookingData(){
           axios.get('api/bookings').then(response=>{
-            this.booking = response.data;
-            let timenow = new Date();
-            for(let index = 0; index < this.booking.length;index++ ) {
-              
-              if(this.booking[index].status == 1){
-                console.log(this.booking[index].id);
-                var bookingdate = new Date(this.booking[index].created_at+' UTC');
-                
-                bookingdate.setMinutes(bookingdate.getMinutes()+10);
-                //console.log(timenow);
-                //console.log(bookingdate);
-
-                
-                  if(timenow > bookingdate){
-                    axios.put('/api/bookings/'+this.booking[index].id,{
-                      status:2
-                    });
-                    console.log('Cancel');
-                    
-                  }
-
-                  //if(timenow ===)
-                
-                //console.log(bookingdate);
-                //console.log(bookingdatesss);
-                //console.log(bookinghour);
-                //console.log(bookingminute);
-                //console.log(bookingsecond);
-                
-              }
-              else {
-                console.log('Checking Book status.');
-              }
-              }
+            this.bookings = response.data;
             });
         },
 
@@ -293,30 +234,38 @@ data(){
         },
 
         groupdata(){
+          //console.log(this.booking)
+          console.log("check1")
+          this.bookings.forEach((book)=>{
+            
+            console.log(book.id);
+          })
 
-            /*for (let i = 0; i < this.booking.length; i++) {
+          /*axios.get('/api/bookings').then(response=>{
+            this.bookings = response.data;
+            for (let i = 0; i < this.bookings.length; i++) {
             axios.get('/api/rooms').then(response=>{
               this.roomroom =response.data.room;
               for (let j = 0; j < this.roomroom.length; j++) {
-                if(this.booking[i].room_id == this.roomroom[j].id && this.booking[i].status == 1){
+                if(this.bookings[i].room_id == this.roomroom[j].id && this.bookings[i].status == 1){
                   
 
-                  let start = moment(this.booking[i].start,).format('YYYY-MM-DD HH:mm');
-                  let end = moment(this.booking[i].end,).format('YYYY-MM-DD HH:mm');
-                  this.Member(this.booking[i].id);
+                  let start = moment(this.bookings[i].start,).format('YYYY-MM-DD HH:mm');
+                  let end = moment(this.bookings[i].end,).format('YYYY-MM-DD HH:mm');
+                  this.Member(this.bookings[i].id);
                   this.membercount = this.member.length;
 
                   this.tabb.push({
-                    id:this.booking[i].id,
+                    id:this.bookings[i].id,
                     start:start,
                     end:end,
                     roomname:this.roomroom[j].room_name,
-                    describe:this.booking[i].describe,
+                    describe:this.bookings[i].describe,*/
                     //person:this.num,
-                    member:this.membercount,
-                    count:this.booking[i].count,
-                    password:this.booking[i].password,
-                    update:new Date(this.booking[i].updated_at)
+                   /* member:this.membercount,
+                    count:this.bookings[i].count,
+                    password:this.bookings[i].password,
+                    update:new Date(this.bookings[i].updated_at)
                   });
 
                   this.member = []*/
@@ -330,27 +279,14 @@ data(){
                   //console.log(tabb);
                   //this.tabb.reverse();
                   //this.tabbbb = this.tabbb.slice(0,5)
-               /* }
-              }
-            })
-            */
+              //  }
+             // }
+            //})
+            
           //}
-
-          this.booking.forEach((book)=>{
-            this.tabbbb.push({
-                    id:this.book[i].id,
-
-                    //person:this.num,
-                    count:this.booking[i].count,
-                    password:this.booking[i].password,
-                  });
-          })
           
-        },
+          //})
 
-
-        totalData(){
-          
         },
 
         runCron(){

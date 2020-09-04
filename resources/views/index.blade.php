@@ -26,8 +26,6 @@ $config = [
   <link href="https://fonts.googleapis.com/css?family=Material+Icons" rel="stylesheet">
 
 
-
-
   <link rel="stylesheet" href="{{ mix('dist/css/app.css') }}">
   
   
