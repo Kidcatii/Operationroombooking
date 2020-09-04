@@ -67,7 +67,7 @@
 import axios from 'axios';
 window.moment = require('moment');
 import { mapGetters } from 'vuex'
-import booktable from 'D:/Program Files/public/BBBB/project-heroku/laravel-vue-spa - Copy (11) - Copy/resources/js/pages/homecomponents/approvetable.vue'
+import booktable from './homecomponents/approvetable.vue'
 
 export default {
   middleware: 'auth',
