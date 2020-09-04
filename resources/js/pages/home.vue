@@ -293,31 +293,30 @@ data(){
         },
 
         groupdata(){
-          axios.get('/api/bookings').then(response=>{
-            this.bookings = response.data;
-            for (let i = 0; i < this.bookings.length; i++) {
+
+            for (let i = 0; i < this.booking.length; i++) {
             axios.get('/api/rooms').then(response=>{
               this.roomroom =response.data.room;
               for (let j = 0; j < this.roomroom.length; j++) {
-                if(this.bookings[i].room_id == this.roomroom[j].id && this.bookings[i].status == 1){
+                if(this.booking[i].room_id == this.roomroom[j].id && this.booking[i].status == 1){
                   
 
-                  let start = moment(this.bookings[i].start,).format('YYYY-MM-DD HH:mm');
-                  let end = moment(this.bookings[i].end,).format('YYYY-MM-DD HH:mm');
-                  this.Member(this.bookings[i].id);
+                  let start = moment(this.booking[i].start,).format('YYYY-MM-DD HH:mm');
+                  let end = moment(this.booking[i].end,).format('YYYY-MM-DD HH:mm');
+                  this.Member(this.booking[i].id);
                   this.membercount = this.member.length;
 
                   this.tabb.push({
-                    id:this.bookings[i].id,
+                    id:this.booking[i].id,
                     start:start,
                     end:end,
                     roomname:this.roomroom[j].room_name,
-                    describe:this.bookings[i].describe,
+                    describe:this.booking[i].describe,
                     //person:this.num,
                     member:this.membercount,
-                    count:this.bookings[i].count,
-                    password:this.bookings[i].password,
-                    update:new Date(this.bookings[i].updated_at)
+                    count:this.booking[i].count,
+                    password:this.booking[i].password,
+                    update:new Date(this.booking[i].updated_at)
                   });
 
                   this.member = []
@@ -337,8 +336,13 @@ data(){
             
           }
           
-          })
+          
 
+        },
+
+
+        totalData(){
+          
         },
 
         runCron(){
