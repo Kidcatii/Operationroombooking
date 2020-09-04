@@ -175,36 +175,6 @@ data(){
 
         },
 
-        getBuildingID(){
-            axios.get('api/buildings/'+1).then(response=>{
-                this.buildingsid = response.data;
-            })
-        },
-
-        getRoomData(){
-            axios.get('/api/rooms').then(response=>{
-              this.rooms = response.data.room;
-            })
-        },
-
-        getUserData(){
-          axios.get('/api/users').then(response=>{
-              this.users = response.data;
-            })
-        },
-
-        getJoingroupData(){
-          axios.get('/api/joingroups').then(response=>{
-              this.groupjoin = response.data;
-            });
-        },
-
-        getBuildingID(){
-            axios.get('api/buildings/'+1).then(response=>{
-                this.buildingsid = response.data;
-            })
-        },
-
         getBookingData(){
           axios.get('api/bookings').then(response=>{
             this.bookings = response.data;
@@ -220,74 +190,6 @@ data(){
           /*if(this.booking.status = 0){
             
           }*/
-        },
-
-        Member(bookingid){
-          this.groupjoin.forEach((join)=>{
-            if (join.booking_id == bookingid){
-              this.member.push({
-                book:join.booking_id,
-                user:join.user_id
-                })
-            }
-          })
-         // debugger;
-        },
-
-        groupdata(){
-          //console.log(this.booking)
-          console.log("check1")
-          this.bookings.forEach((book)=>{
-            
-            console.log(book.id);
-          })
-
-          /*axios.get('/api/bookings').then(response=>{
-            this.bookings = response.data;
-            for (let i = 0; i < this.bookings.length; i++) {
-            axios.get('/api/rooms').then(response=>{
-              this.roomroom =response.data.room;
-              for (let j = 0; j < this.roomroom.length; j++) {
-                if(this.bookings[i].room_id == this.roomroom[j].id && this.bookings[i].status == 1){
-                  
-
-                  let start = moment(this.bookings[i].start,).format('YYYY-MM-DD HH:mm');
-                  let end = moment(this.bookings[i].end,).format('YYYY-MM-DD HH:mm');
-                  this.Member(this.bookings[i].id);
-                  this.membercount = this.member.length;
-
-                  this.tabb.push({
-                    id:this.bookings[i].id,
-                    start:start,
-                    end:end,
-                    roomname:this.roomroom[j].room_name,
-                    describe:this.bookings[i].describe,*/
-                    //person:this.num,
-                   /* member:this.membercount,
-                    count:this.bookings[i].count,
-                    password:this.bookings[i].password,
-                    update:new Date(this.bookings[i].updated_at)
-                  });
-
-                  this.member = []*/
-
-                  //this.member = []
-                  
-                  /*this.tabb.sort(function (a, b) {
-                      this.tabbb = a.update.localeCompare(b.update);
-                  });*/
-                  //this.tabbbb = this.tabb.sort((a, b) => b.update - a.update)
-                  //console.log(tabb);
-                  //this.tabb.reverse();
-                  //this.tabbbb = this.tabbb.slice(0,5)
-              //  }
-             // }
-            //})
-            
-          //}
-          
-          //})
-
         },
 
         runCron(){

@@ -117,8 +117,8 @@ export default {
 
 
     mounted:function (){
-      this.getBookingdata();
-      this.getRoomData();
+     // this.getBookingdata();
+     // this.getRoomData();
       
 
       
