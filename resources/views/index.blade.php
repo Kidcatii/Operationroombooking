@@ -26,9 +26,6 @@ $config = [
   <link href="https://fonts.googleapis.com/css?family=Material+Icons" rel="stylesheet">
 
 
-  
-  <link rel="stylesheet" type="text/css" href="/DataTables/datatables.css">
-  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.css">
 
 
   <link rel="stylesheet" href="{{ mix('dist/css/app.css') }}">
@@ -54,9 +51,6 @@ $config = [
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/vuetify/dist/vuetify.js"></script>
 
-  
- 
-  <script type="text/javascript" charset="utf8" src="/DataTables/datatables.js"></script>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
   <script src="https://unpkg.com/vue-chartjs/dist/vue-chartjs.min.js"></script>
