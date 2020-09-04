@@ -294,7 +294,7 @@ data(){
 
         groupdata(){
 
-            for (let i = 0; i < this.booking.length; i++) {
+            /*for (let i = 0; i < this.booking.length; i++) {
             axios.get('/api/rooms').then(response=>{
               this.roomroom =response.data.room;
               for (let j = 0; j < this.roomroom.length; j++) {
@@ -319,25 +319,33 @@ data(){
                     update:new Date(this.booking[i].updated_at)
                   });
 
-                  this.member = []
+                  this.member = []*/
 
                   //this.member = []
                   
                   /*this.tabb.sort(function (a, b) {
                       this.tabbb = a.update.localeCompare(b.update);
                   });*/
-                  this.tabbbb = this.tabb.sort((a, b) => b.update - a.update)
+                  //this.tabbbb = this.tabb.sort((a, b) => b.update - a.update)
                   //console.log(tabb);
                   //this.tabb.reverse();
                   //this.tabbbb = this.tabbb.slice(0,5)
-                }
+               /* }
               }
             })
-            
-          }
-          
-          
+            */
+          //}
 
+          this.booking.forEach((book)=>{
+            this.tabbbb.push({
+                    id:this.book[i].id,
+
+                    //person:this.num,
+                    count:this.booking[i].count,
+                    password:this.booking[i].password,
+                  });
+          })
+          
         },
 
 
