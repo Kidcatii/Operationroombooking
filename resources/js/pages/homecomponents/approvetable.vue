@@ -10,7 +10,7 @@
           <th>จำนวน</th>
           <th>Actions</th>
         </tr>
-        <tr v-for="item in items.slice(0, 5)" :key="item.id"
+        <tr v-for="item in tabb" :key="item.id"
         >
           <td>{{item.id}}</td>
           <td>{{item.roomname}}</td>
@@ -18,17 +18,24 @@
           <td>{{item.end}}</td>
           <td>{{item.describe}}</td>
           <td>{{item.count}}</td>
-          <td>{{item.member}}/{{item.count}}</td>
-          <td><v-btn color="blue" text @click="gotoBookingdetail(item.id)">
-        รายละเอียด </v-btn>
-        </td>
+          <td><v-btn @click="gotoBookingdetail(item.id)">
+            เข้าร่วม </v-btn>
+           <v-dialog v-model="dialog" max-width="300px">
+              <v-card>
+                <v-card-text>ต้องการเข้าร่วมหรือไม่</v-card-text>
+                <v-spacer></v-spacer>
+              <v-card-actions>
+                <v-btn color="green" @click="dialog = false" text>ใช่</v-btn>
+                <v-btn color="red" @click="dialog = false" text>ไม่</v-btn>
+              </v-card-actions>
+              </v-card>
+            </v-dialog>
+            </td>
         </tr>
         
-      </table>
-      <v-btn absolute right text color="blue" @click="$router.push('/alloflist')">ดูทั้งหมด>></v-btn>
-    </card>-->
+      </table>-->
 
-         <v-simple-table>
+          <v-simple-table>
         <template v-slot:default>
           <thead>
             <tr>
@@ -59,7 +66,6 @@
 
       <v-btn absolute right text color="blue" @click="$router.push('/alloflist')">ดูทั้งหมด>></v-btn>
       <br/>
-      
     </card>
 </template>
 
@@ -118,8 +124,8 @@ export default {
 
 
     mounted:function (){
-     // this.getBookingdata();
-     // this.getRoomData();
+      this.getBookingdata();
+      this.getRoomData();
       
 
       
