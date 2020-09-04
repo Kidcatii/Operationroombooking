@@ -1,6 +1,6 @@
 <template>
     <card :title="$t('ห้องที่ได้รับการอนุมัติล่าสุด')" style="text-align: center font-family: arial; width: 100%; margin: auto;">
-      <table class="table table-bordered">
+      <!--<table class="table table-bordered">
         <tr >
           <th>รหัส</th>
           <th>ชื่อห้อง</th>
@@ -26,9 +26,9 @@
         
       </table>
       <v-btn absolute right text color="blue" @click="$router.push('/alloflist')">ดูทั้งหมด>></v-btn>
-    </card>
+    </card>-->
 
-         <!-- <v-simple-table>
+         <v-simple-table>
         <template v-slot:default>
           <thead>
             <tr>
@@ -59,7 +59,8 @@
 
       <v-btn absolute right text color="blue" @click="$router.push('/alloflist')">ดูทั้งหมด>></v-btn>
       <br/>
-    </card>-->
+      
+    </card>
 </template>
 
 
