@@ -67,7 +67,7 @@
 import axios from 'axios';
 window.moment = require('moment');
 import { mapGetters } from 'vuex'
-import booktable from './homecomponent/approvetable'
+import booktable from './homecomponent/approvetable.vue'
 export default {
   middleware: 'auth',
 
