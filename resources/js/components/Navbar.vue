@@ -18,7 +18,7 @@
 
       <v-toolbar-title>{{user.name}}</v-toolbar-title>
       <v-btn  large style="background-color:#F08080" @click.prevent="logout">
-        <v-icon large left>power_settings_new</v-icon>
+       <!-- <v-icon large left>power_settings_new</v-icon> -->
           Logout
       </v-btn>
 
@@ -91,7 +91,7 @@
                   :to="{name:item.route }"
                   @click="tabActive()"
                 >
-                <v-icon large>{{item.icon}}</v-icon>
+              <!--  <v-icon large>{{item.icon}}</v-icon> -->
                   <v-list-item-title>{{ item.title }}</v-list-item-title>
               </v-list-item>
             </v-list>
@@ -218,7 +218,7 @@ export default {
     it:[
       {
         name: 'Home',
-        icon : 'home',
+       // icon : 'home',
         route: 'home',},
       /*{
         name: 'Calendar',
@@ -227,7 +227,7 @@ export default {
       },*/
       {
         name: 'History',
-        icon : 'assessment',
+        //icon : 'assessment',
         route: 'settings.history',
       },
       /*{
@@ -247,34 +247,34 @@ export default {
       },*/
       {
         name: 'Calendar',
-        icon : 'event',
+        //icon : 'event',
         route: 'calendar',
       },
     ],
     items: [
       { title: 'Resevrelist',
-          icon : 'assignment_turned_in',
+          //icon : 'assignment_turned_in',
           route: 'admin.reservelist' },
         { title: 'Member',
-          icon : 'person',
+          //icon : 'person',
           route: 'admin.member' },
         { title: 'Staff Member',
-          icon : 'people_alt',
+         // icon : 'people_alt',
           route: 'admin.staff' },
         { title: 'Building',
-          icon : 'business',
+         // icon : 'business',
           route: 'admin.building' },
         { title: 'Room' ,
-          icon : 'meeting_room',
+         // icon : 'meeting_room',
           route: 'admin.room'},
         { title: 'Subject',
-          icon : 'import_contacts',
+         // icon : 'import_contacts',
           route: 'admin.subject'},
         { title: 'Report',
-          icon : 'description',
+         // icon : 'description',
           route: 'admin.report'},
         { title : 'Dashborad',
-          icon : 'assessment',
+         // icon : 'assessment',
           route : 'admin.db'
 
         }
