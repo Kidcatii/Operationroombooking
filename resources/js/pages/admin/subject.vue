@@ -116,7 +116,7 @@ export default {
             })
         },
         getRoomdata(){
-            axios.get('/api/rooms/').then(response => {
+            axios.get('/api/rooms').then(response => {
                 this.room = response.data.room;
             })
         },
