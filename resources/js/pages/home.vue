@@ -235,11 +235,9 @@ data(){
         },
 
         groupdata(){
-          //console.log(this.booking)
-          console.log("check1")
+
           this.bookings.forEach((book)=>{
-            
-            console.log(book.id);
+
           })
 
           /*axios.get('/api/bookings').then(response=>{
@@ -311,7 +309,6 @@ data(){
                     axios.put('/api/bookings/'+this.booking[index].id,{
                       status:2
                     });
-                    console.log('Cancel');
                     
                   }
 

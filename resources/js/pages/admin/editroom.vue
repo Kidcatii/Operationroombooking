@@ -86,7 +86,7 @@ export default {
             axios.get('/api/buildings').then(response => {
                 this.buildings = response.data.building;
                 for (let index = 0; index < this.buildings.length; index++) {
-                    console.log(this.buildings.length);
+
                     this.buildingvalue.push({
                         value:this.buildings[index].id,
                         text:this.buildings[index].building_name

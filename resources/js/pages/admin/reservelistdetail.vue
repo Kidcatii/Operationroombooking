@@ -127,10 +127,7 @@ export default {
             const formatdate = moment(this.bookings.start,).format('DD-MM-YYYY');
             const formatstart = moment(this.bookings.start,).format('HH:mm');
             const formatend = moment(this.bookings.end,).format('HH:mm');
-            console.log(formatdatecrt);
-            console.log(formatdate);
-            console.log(formatstart);
-            console.log(formatend);
+
               for(let roomsloop = 0; roomsloop < this.rooms.length;roomsloop++){
                   if (this.rooms[roomsloop].id == this.bookings.room_id){
                       for(let usersloop = 0; usersloop < this.users.length;usersloop++){

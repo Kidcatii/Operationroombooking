@@ -202,7 +202,6 @@ export default {
           for (let index = 0; index < this.bookings.length; index++) {
             if (this.bookings[index].status == 0){
                     
-                    console.log(this.users.length)
                     
               for(let roomsloop = 0; roomsloop < this.rooms.length;roomsloop++){
                   if (this.rooms[roomsloop].id == this.bookings[index].room_id){
@@ -293,7 +292,7 @@ export default {
 
     cancelagain (id){
         const index = this.events.indexOf(id)
-        console.log(id);
+
         axios.put('/api/bookings/'+id.id,{
           status:2
         });

@@ -260,10 +260,7 @@ export default {
             });
                 
             });
-            console.log(this.bookings);
-            console.log(this.buildings);
-            console.log(this.rooms);
-            console.log(this.subject);
+
         },
 
         selectdisables(){
@@ -294,8 +291,6 @@ export default {
 
             
 
-            console.log(this.pickdate);
-            console.log(datetimeend);
             if (datetimeend <= datetimestart){
                 this.err = 'เวลาไม่ถูกต้อง'
             }

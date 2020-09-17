@@ -143,8 +143,7 @@ export default {
       }
     })*/
 
-    console.log(line);
-    console.log(doughnut);
+
     
   
   },
@@ -214,7 +213,7 @@ export default {
         case 'b':
            var date = new Date ('')
            var month = date.getMonth
-           console.log(month)
+
            this.showoption = 'เดือน';
           break;
         case 'c':

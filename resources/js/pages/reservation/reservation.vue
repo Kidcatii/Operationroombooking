@@ -504,7 +504,7 @@ import { mapGetters } from 'vuex'
 
         this.thisday = new Date();
         this.thistoday = moment(this.thisday,'YYYYMMDD').format('YYYY-MM-DD')
-        console.log(this.thistoday);
+
         
 
 
@@ -728,8 +728,7 @@ import { mapGetters } from 'vuex'
             }*/
             
             var booktoday = new Date(this.now)
-            console.log(this.tomorrow)
-            console.log(booktoday)
+
            // console.log(this.newdatestart)
            // console.log(this.newdateend)
           if (!this.now){
@@ -771,35 +770,34 @@ import { mapGetters } from 'vuex'
               }*/
               if (this.newdatestart < eventstart && this.newdateend < eventstart ){
                   //this.errors = "จองแล้ว"
-                  console.log('343')
                   this.checkbook = true;
                   break;
               }
 
               else if (this.newdatestart > eventend && this.newdateend > eventend ){
                   //this.errors = "จองแล้ว"
-                  console.log('353')
+
                   this.checkbook = true;
                   break;
               }
 
               else if (this.newdatestart >= eventstart && this.newdateend >= eventend ){
                   this.errors = "เวลานี้มีคนใช้งานแล้ว"
-                  console.log('3xxz')
+
                   this.checkbook = false;
                   break;
               }
 
               else if (this.newdatestart <= eventstart && this.newdateend >= eventend ){
                   this.errors = "เวลานี้มีคนใช้งานแล้ว"
-                  console.log('2')
+
                   this.checkbook = false;
                   break;
               }
 
               else if (this.newdatestart <= eventstart && this.newdateend <= eventend ){
                   this.errors = "เวลานี้มีคนใช้งานแล้ว"
-                  console.log('3')
+
                   this.checkbook = false;
                   break;
               }
@@ -807,7 +805,7 @@ import { mapGetters } from 'vuex'
               
               else if(this.newdatestart >= eventstart && this.newdateend <= eventend){
                   this.errors = "เวลานี้มีคนใช้งานแล้ว"
-                  console.log('พลาดแล้ว')
+
                   this.checkbook = false;
                   break;
               }
@@ -822,15 +820,14 @@ import { mapGetters } from 'vuex'
               }*/
 
               else if (this.newdatestart > eventend && this.newdateend > eventend){
-                  //this.errors = "จองแล้ว"
-                  console.log('333')
+
                   this.checkbook = true;
                   break;
               }
               
               else {
                 //this.errors = "จองแล้ว"
-                console.log('success')
+
                 this.checkbook = true;
                 break;
                 /*let id = this.user.id;
@@ -876,7 +873,7 @@ import { mapGetters } from 'vuex'
             }
             else {
               //this.errors = "จองแล้ว"
-              console.log('5')
+
               //this.dialog = true;
               this.checkbook = true;
               
@@ -935,7 +932,7 @@ import { mapGetters } from 'vuex'
             this.dialog = true
           }
           //this.Null();
-          console.log(this.checkbook)
+
           }
                           
         },
@@ -1018,9 +1015,7 @@ import { mapGetters } from 'vuex'
                   if (this.bookings[index].room_id == this.rooms.id && this.bookings[index].status == 1){
                     let chstart = moment(this.bookings[index].start).format('YYYY-MM-DD HH:mm')
                     let chend = moment(this.bookings[index].end).format('YYYY-MM-DD HH:mm')
-                    
-                    console.log(chstart),
-                    console.log(chend),
+
 
                     this.events.push({
                       name:'จองห้อง : '+ this.rooms.room_name,
@@ -1047,11 +1042,11 @@ import { mapGetters } from 'vuex'
           for (let loop = 0; loop < this.subject.length; loop++) {
             if(this.subject[loop].room_id === this.rooms.id){
             var date = new Date(this.subject[loop].start)
-          console.log(date);
+
           var ddd = date.getDate();
           var mmm = date.getMonth()+1;
           var yyy = date.getFullYear();
-          console.log(date.toString());
+
           if (mmm < 10){
                 if (ddd < 10){
                   var someFormattedDated = yyy+'-'+'0'+mmm+'-'+'0'+ddd;
@@ -1310,7 +1305,7 @@ import { mapGetters } from 'vuex'
               //formatstart < formatend
               var i = 0;
               while (i < 7){
-                console.log(1);
+
                 //formatstart.setDate(formatstart.getDate() + 7);
                 //this.subjecttest.push({start : formatstart})
                 i++;

@@ -76,7 +76,6 @@ export default {
             axios.get('/api/rooms').then(response => {
                 this.rooms = response.data.room;
                 for (let index = 0; index < this.rooms.length; index++) {
-                    console.log(this.rooms[index].id)
                     for (let buildingloop = 0; buildingloop < this.building.length; buildingloop++) {
                         
                         if (this.rooms[index].building_id == this.building[buildingloop].id){

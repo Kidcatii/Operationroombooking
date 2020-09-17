@@ -264,7 +264,7 @@ export default {
               }
             };
             pdfMake.createPdf(docDefinition).open()
-            console.log(canvasImg);
+
         },
         
     getData(){
@@ -292,7 +292,7 @@ export default {
                 var year = this.pickyear
                 var d = new Date(year, month, 0);
                 var formatdate = Number(moment(d).format('DD'));
-                console.log(formatdate)
+
                 for (var i = 1;i <= formatdate;i++){
                     this.datalabel.push(i);
                 }
@@ -407,9 +407,9 @@ export default {
                     var month = this.pickmonth
                     var year = this.pickyear
                     var d = new Date(year, month, 0);
-                    console.log(d)
+
                     var day = Number(moment(d).format('DD'));
-                    console.log(day)
+
                     this.rooms.forEach((room)=>{
                     for (let i = 1; i < day; i++) {
                         var count = 0;
@@ -459,7 +459,7 @@ export default {
                         
                         var label = item['room_name'];
                         var color = this.color.valueOf();
-                        console.log(color)
+
                         for (let i = 0; i < this.datalist.length; i++) {
                             
                                 

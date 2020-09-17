@@ -558,8 +558,7 @@ export default {
                       }
                    }
                  }
-                
-                 console.log(this.bookingslist);
+
               }
 
 

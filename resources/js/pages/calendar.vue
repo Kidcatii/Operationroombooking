@@ -329,7 +329,6 @@ import { mapGetters } from 'vuex'
 
         this.thisday = new Date();
         this.thistoday = moment(this.thisday,'YYYYMMDD').format('YYYY-MM-DD')
-        console.log(this.thistoday);
     },
     methods: {
 

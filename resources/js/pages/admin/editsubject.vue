@@ -384,7 +384,6 @@ export default {
         
         daycheck(){
             const day = moment(this.start).format('dddd');
-            console.log(day);
         },
         //roomcheck
         alert(){
