@@ -329,7 +329,7 @@ export default {
             if (day == 'Sunday') this.daychange='วันอาทิตย์';
             else if (day == 'Monday') this.daychange='วันจันทร์';
             else if (day == 'Tuesday') this.daychange='วันอังคาร';
-            else if (day == 'Wednesday') this.daychange='วันพุทธ';
+            else if (day == 'Wednesday') this.daychange='วันพุธ';
             else if (day == 'Thursday') this.daychange='วันพฤหัสบดี';
             else if (day == 'Friday') this.daychange='วันศุกร์';
             else if (day == 'Saturday') this.daychange='วันเสาร์';
