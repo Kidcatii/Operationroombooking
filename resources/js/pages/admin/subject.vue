@@ -98,7 +98,7 @@ export default {
                                     this.num++;
                                     this.object.push({
                                     num:this.num,
-                                    id:this.subject[index].id,
+                                    //id:this.subject[index].id,
                                     subject:this.subject[index].subject,
                                     day:this.subject[index].day,
                                     start:start,
