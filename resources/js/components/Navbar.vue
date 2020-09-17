@@ -71,8 +71,8 @@
             v-bind="attrs"
             
           >
-          <v-icon large right
-          >settings</v-icon>
+          <!--<v-icon large right
+          >settings</v-icon>-->
           Menagement
           <v-icon small right v-if="!click"
           >keyboard_arrow_right
