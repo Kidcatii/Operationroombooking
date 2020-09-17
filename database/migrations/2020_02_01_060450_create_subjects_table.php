@@ -17,8 +17,10 @@ class CreateSubjectsTable extends Migration
             $table->increments('id');
             $table->string('subject');
             $table->string('day');
-            $table->dateTime('start');
-            $table->dateTime('end');
+            $table->date('start');
+            $table->date('end');
+            $table->time('start');
+            $table->time('end');
             $table->integer('room_id')->unsigned();
             $table->foreign('room_id')->references('id')->on('rooms')->onDelete('cascade');
             $table->timestamps();
