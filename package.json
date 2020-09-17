@@ -1,3 +1,4 @@
+
 {
   "private": true,
   "scripts": {
@@ -10,6 +11,12 @@
     "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
     "lint": "eslint --fix --ext .js,.vue resources/js",
     "postinstall": "npm run prod"
+  },
+  "name": "myapp",
+  "description": "a really cool app",
+  "version": "1.0.0",
+  "engines": {
+    "node": "12.x"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.30",
