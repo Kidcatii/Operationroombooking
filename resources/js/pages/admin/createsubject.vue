@@ -334,7 +334,7 @@ export default {
             const timeend = this.choosehourtimeend+this.chooseminutetimeend+"00";
             const timeendtotal = moment(timeend, 'hmmss').format('HH:mm:ss')
 
-            axios.post('/api/subject',{
+            axios.post('/api/subjects',{
                 id:this.id,
                 subject:this.subject,
                 day:this.daychange,
