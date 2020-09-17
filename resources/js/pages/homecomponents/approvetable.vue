@@ -34,9 +34,7 @@
         </tr>
         
       </table>-->
-      <v-btn @click="getBookingdata();getRoomData()">
-        Show
-      </v-btn>
+
           <v-simple-table>
         <template v-slot:default>
           <thead>
@@ -126,8 +124,8 @@ export default {
 
 
     mounted:function (){
-      //this.getBookingdata();
-      //this.getRoomData();
+      this.getBookingdata();
+      this.getRoomData();
       
 
       
