@@ -339,7 +339,7 @@ export default {
             const timeend = this.choosehourtimeend+this.chooseminutetimeend+"00";
             const timeendtotal = moment(timeend, 'hmmss').format('HH:mm:ss')
 
-            axios.put('/api/subject/'+this.$route.params.id,{
+            axios.put('/api/subjects/'+this.$route.params.id,{
                 id:this.id,
                 subject:this.subject,
                 day:this.daychange,
@@ -355,7 +355,7 @@ export default {
         },
 
         getSubject(){
-            axios.get('/api/subject/'+this.$route.params.id).then(response =>{
+            axios.get('/api/subjects/'+this.$route.params.id).then(response =>{
                 this.sub = response.data;
                 this.subject = this.sub.subject;
                 this.start = this.sub.start;

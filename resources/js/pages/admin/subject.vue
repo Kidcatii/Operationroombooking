@@ -83,7 +83,7 @@ export default {
         getSubjectData(){
             this.getRoomdata();
             this.getBuildingdata();
-            axios.get('/api/subject').then(response => {
+            axios.get('/api/subjects').then(response => {
                 this.subject = response.data;
                 for (let index = 0; index < this.subject.length; index++) {
                     const start = moment(this.subject[index].start).format('DD-MM-YYYY');
@@ -135,7 +135,7 @@ export default {
         },
 
          Delete(id){
-          axios.delete('/api/subject/'+id,{
+          axios.delete('/api/subjects/'+id,{
             id:id
           })
           this.$router.go();

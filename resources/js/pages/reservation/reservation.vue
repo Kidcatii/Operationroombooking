@@ -1042,7 +1042,7 @@ import { mapGetters } from 'vuex'
         this.dialog = false;
       },
       getSubjectData(){
-        axios.get('/api/subject').then(res =>{
+        axios.get('/api/subjects').then(res =>{
           this.subject = res.data;
           for (let loop = 0; loop < this.subject.length; loop++) {
             if(this.subject[loop].room_id === this.rooms.id){

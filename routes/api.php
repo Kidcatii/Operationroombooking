@@ -62,11 +62,11 @@ Route::put('/buildings/{id}', 'Api\BuildingController@update');
 
 
 
-Route::get('/subject', 'Api\SubjectController@index');
-Route::get('/subject/{id}', 'Api\SubjectController@show');
-Route::post('/subject', 'Api\SubjectController@store');
-Route::put('/subject/{id}', 'Api\SubjectController@update');
-Route::delete('/subject/{id}','Api\SubjectController@destroy');
+Route::get('/subjects', 'Api\SubjectController@index');
+Route::get('/subjects/{id}', 'Api\SubjectController@show');
+Route::post('/subjects', 'Api\SubjectController@store');
+Route::put('/subjects/{id}', 'Api\SubjectController@update');
+Route::delete('/subjects/{id}','Api\SubjectController@destroy');
 
 Route::get('/joingroups', 'Api\JoingroupController@index');
 Route::get('/joingroups/{id}', 'Api\JoingroupController@callgroup');
